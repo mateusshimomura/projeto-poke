@@ -5,15 +5,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiService {
-  private url = 'https://pokeapi.co/api/v2/pokemon';
-
+  private url: string = 'https://pokeapi.co/api/v2/pokemon';
+  private pokemonSelecionado: any;
   constructor(private http: HttpClient) {}
+
+  getPokemonSelecionado() {
+    return this.pokemonSelecionado;
+  }
 
   getLista(limit: number, offset: number) {
     return this.http.get(`${this.url}?offset=${offset}&limit=${limit}`);
   }
 
   getDadosPokemon(nome: string) {
-    return this.http.get(`${this.url}/${nome}`);
+    this.pokemonSelecionado = this.http.get(`${this.url}/${nome}`);
+    return this.pokemonSelecionado;
   }
 }

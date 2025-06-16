@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title> Tab 2 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,14 +12,15 @@
   </ion-header>
 
   <ion-card *ngIf="dadosPokemon">
-  <img alt="Silhouette of mountains" [src]="dadosPokemon.sprites.front_default" />
-  <ion-card-header>
-    <ion-card-title>{{ dadosPokemon.name  }}</ion-card-title>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-  </ion-card-header>
-
-  <ion-card-content>
-    Here's a small text description for the card content. Nothing more, nothing less.
-  </ion-card-content>
-</ion-card>
+    <img
+      [alt]="`foto do ${dadosPokemon.name}`"
+      [src]="dadosPokemon?.sprites.other?.dream_world?.front_default || dadosPokemon?.sprites?.front_default"
+    />
+    <ion-card-header>
+      <ion-card-subtitle (click)="detalhesPokemon()"
+        >Detalhes</ion-card-subtitle
+      >
+      <ion-card-title>{{ dadosPokemon.name }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

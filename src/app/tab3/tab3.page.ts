@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,8 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss'],
   standalone: false,
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
+  constructor(private apiService: ApiService) {}
 
-  constructor() {}
+  listaDeFotos: any[] = [];
+  pokemon: any;
 
+  ngOnInit() {
+    this.apiService.getPokemonSelecionado().subscribe((l: any) => {
+      this.pokemon = l;
+      this.listaDeFotos = Object.values(l.sprites)
+        .filter((img: any) => img !== null)
+        .slice(0, 4);
+    });
+  }
 }

@@ -13,5 +13,12 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-content color="light">
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let imagem of listaDeFotos">
+      <img [alt]="pokemon.name" [src]="imagem" />
+    </ion-item>
+  </ion-list>
+</ion-content>
+
 </ion-content>

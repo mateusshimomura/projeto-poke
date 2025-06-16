@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -9,7 +9,11 @@ import { ApiService } from '../services/api.service';
   standalone: false,
 })
 export class Tab2Page implements OnInit {
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiService,
+    private router: Router
+  ) {}
 
   nomePokemon: string | null = '';
   dadosPokemon: any;
@@ -24,5 +28,9 @@ export class Tab2Page implements OnInit {
           this.dadosPokemon = pokemon;
         });
     }
+  }
+
+  detalhesPokemon() {
+    this.router.navigate(['/tabs/tab3']);
   }
 }
