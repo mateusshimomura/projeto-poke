@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -6,8 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss'],
   standalone: false,
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
+  constructor(private apiService: ApiService, private router: Router) {}
+  pokemon: any;
+  listaPokemons: any;
 
-  constructor() {}
+  ngOnInit() {
+    this.apiService.getLista(20, 0).subscribe((lista: any) => {
+      this.listaPokemons = lista.results;
+    });
+  }
 
+  escolherPokemon(nome: string) {
+    this.router.navigate(['/tabs/tab2', nome])
+    this.apiService.getDadosPokemon(nome).subscribe((r: any) => {
+      this.pokemon = r;
+    });
+  }
 }

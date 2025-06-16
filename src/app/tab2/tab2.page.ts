@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-tab2',
@@ -6,8 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss'],
   standalone: false,
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
-  constructor() {}
+  nomePokemon: string | null = '';
+  dadosPokemon: any;
 
+  ngOnInit() {
+    this.nomePokemon = this.route.snapshot.paramMap.get('name');
+
+    if (this.nomePokemon) {
+      this.apiService
+        .getDadosPokemon(this.nomePokemon)
+        .subscribe((pokemon: any) => {
+          this.dadosPokemon = pokemon;
+        });
+    }
+  }
 }
