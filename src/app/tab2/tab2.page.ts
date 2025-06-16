@@ -20,7 +20,6 @@ export class Tab2Page implements OnInit {
 
   ngOnInit() {
     this.nomePokemon = this.route.snapshot.paramMap.get('name');
-
     if (this.nomePokemon) {
       this.apiService
         .getDadosPokemon(this.nomePokemon)

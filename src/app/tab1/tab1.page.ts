@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {}
-  pokemon: any;
   listaPokemons: any;
 
   ngOnInit() {
@@ -20,9 +19,6 @@ export class Tab1Page implements OnInit {
   }
 
   escolherPokemon(nome: string) {
-    this.router.navigate(['/tabs/tab2', nome])
-    this.apiService.getDadosPokemon(nome).subscribe((r: any) => {
-      this.pokemon = r;
-    });
+    this.router.navigate(['/tabs/tab2', nome]);
   }
 }
