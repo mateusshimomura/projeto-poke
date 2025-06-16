@@ -25,6 +25,7 @@ export class Tab2Page implements OnInit {
         .getDadosPokemon(this.nomePokemon)
         .subscribe((pokemon: any) => {
           this.dadosPokemon = pokemon;
+          this.apiService.setPokemonSelecionado(pokemon);
         });
     }
   }

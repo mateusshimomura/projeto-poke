@@ -15,11 +15,9 @@ export class Tab3Page implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter() {
-    this.apiService.getPokemonSelecionado().subscribe((pokemon: any) => {
-      this.pokemon = pokemon;
-      this.listaDeFotos = Object.values(pokemon.sprites)
-        .filter((img: any) => img !== null)
-        .slice(0, 4);
-    });
+    this.pokemon = this.apiService.getPokemonSelecionado();
+    this.listaDeFotos = Object.values(this.pokemon.sprites)
+      .filter((img: any) => img !== null)
+      .slice(0, 4);
   }
 }

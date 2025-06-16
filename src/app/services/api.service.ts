@@ -14,12 +14,19 @@ export class ApiService {
     return this.pokemonSelecionado;
   }
 
+  setPokemonSelecionado(pokemon: any) {
+    this.pokemonSelecionado = pokemon;
+  }
+
   getLista(limit: number, offset: number) {
     return this.http.get(`${this.url}?offset=${offset}&limit=${limit}`);
   }
 
   getDadosPokemon(nome: string) {
-    this.pokemonSelecionado = this.http.get(`${this.url}/${nome}`);
-    return this.pokemonSelecionado;
+    return this.http.get(`${this.url}/${nome}`);
+    // this.http.get(`${this.url}/${nome}`).subscribe((p: any) => {
+    //   this.pokemonSelecionado = p;
+    //   return p;
+    // });
   }
 }
