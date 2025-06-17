@@ -21,6 +21,12 @@
         >Detalhes</ion-card-subtitle
       >
       <ion-card-title>{{ dadosPokemon.name }}</ion-card-title>
+      <ion-icon
+        [name]="favorito ? 'star' : 'star-outline'"
+        size="large"
+        [style.color]="favorito ? 'gold' : 'grey'"
+        (click)="mudarFavorito()"
+      ></ion-icon>
     </ion-card-header>
   </ion-card>
 </ion-content>
