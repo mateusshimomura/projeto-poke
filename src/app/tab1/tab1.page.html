@@ -11,12 +11,15 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content color="light">
   <ion-list [inset]="true">
-    <ion-item *ngFor="let pokemon of listaPokemons" (click)="escolherPokemon(pokemon.name)">
+    <ion-item
+      *ngFor="let pokemon of listaPokemons"
+      (click)="escolherPokemon(pokemon.name)"
+    >
       <ion-label>{{ pokemon.name }}</ion-label>
     </ion-item>
   </ion-list>
-
-</ion-content>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
