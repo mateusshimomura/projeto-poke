@@ -14,6 +14,11 @@ export class Tab3Page implements OnInit {
 
   ngOnInit() {}
 
+  getPokemonTypes() {
+    let types = this.pokemon.types.map((t: any) => t.type.name).join(', ');
+    return types;
+  }
+
   ionViewWillEnter() {
     this.pokemon = this.apiService.getPokemonSelecionado();
     this.listaDeFotos = Object.values(this.pokemon.sprites)
