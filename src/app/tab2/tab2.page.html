@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{ dadosPokemon ? dadosPokemon.name : '' }}</ion-title>
+    <ion-title>{{ dadosPokemon ? stringUtils.primeiraLetraMaiuscula(dadosPokemon.name) : '' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ dadosPokemon ? dadosPokemon.name : '' }}</ion-title>
+      <ion-title size="large">{{ dadosPokemon ? stringUtils.primeiraLetraMaiuscula(dadosPokemon.name) : '' }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -20,7 +20,7 @@
       <ion-card-subtitle (click)="detalhesPokemon()"
         >Detalhes</ion-card-subtitle
       >
-      <ion-card-title>{{ dadosPokemon.name }}</ion-card-title>
+      <ion-card-title>{{ stringUtils.primeiraLetraMaiuscula(dadosPokemon.name) }}</ion-card-title>
       <ion-icon
         [name]="favorito ? 'star' : 'star-outline'"
         size="large"

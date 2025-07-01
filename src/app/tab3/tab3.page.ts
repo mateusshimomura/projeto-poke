@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { StringUtilsService } from '../services/string-utils.service';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -7,7 +8,10 @@ import { ApiService } from '../services/api.service';
   standalone: false,
 })
 export class Tab3Page implements OnInit {
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    public stringUtils: StringUtilsService
+  ) {}
 
   listaDeFotos: any[] = [];
   pokemon: any;

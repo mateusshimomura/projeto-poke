@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { StringUtilsService } from '../services/string-utils.service';
 
 @Component({
   selector: 'app-tab1',
@@ -10,7 +11,11 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
   standalone: false,
 })
 export class Tab1Page implements OnInit {
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    public stringUtils: StringUtilsService
+  ) {}
   listaPokemons: any = [];
 
   ngOnInit() {

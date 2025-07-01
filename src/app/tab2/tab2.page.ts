@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { StringUtilsService } from '../services/string-utils.service';
 
 @Component({
   selector: 'app-tab2',
@@ -12,7 +13,8 @@ export class Tab2Page implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    public stringUtils: StringUtilsService
   ) {}
 
   nomePokemon: string | null = '';

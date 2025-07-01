@@ -46,6 +46,8 @@ Caso queira testar o projeto em outro dispositivo diferente do que está rodando
 ## Abordagem no Projeto
 Na parte da codificação, foi escolhido um padrão simples, para facilitar futuras edições e implementações por outros desenvolvedores. Escolhi criar um Service para centralizar todas as requisições e armazenamento de dados. Quanto ao design, foi adotado um padrão simples também, com o intuito de facilitar a interpretação e leitura por parte dos usuários.
 
+## Acesso ao Projeto
+https://mateusshimomura.github.io/projeto-poke
 
 <!-- LINKS -->
 [Ionic]: https://img.shields.io/badge/ionic-3880ff?style=for-the-badge&logo=ionic&logoColor=white
