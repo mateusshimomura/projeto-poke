@@ -36,7 +36,7 @@ export class Tab2Page implements OnInit {
     }
   }
 
-  adiocionarFavorito() {
+  adicionarFavorito() {
     let favoritosId = JSON.parse(localStorage.getItem('favoritos') || '[]');
     favoritosId.push(this.dadosPokemon.id);
     localStorage.setItem('favoritos', JSON.stringify(favoritosId));
@@ -56,7 +56,7 @@ export class Tab2Page implements OnInit {
     if (this.favorito) {
       this.removeFavorito();
     } else {
-      this.adiocionarFavorito();
+      this.adicionarFavorito();
     }
     this.favorito = !this.favorito;
   }
