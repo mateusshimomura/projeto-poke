@@ -16,7 +16,15 @@
       *ngFor="let pokemon of listaPokemons"
       (click)="escolherPokemon(pokemon.name)"
     >
-      <ion-label>{{ stringUtils.primeiraLetraMaiuscula(pokemon.name) }}</ion-label>
+      <ion-avatar aria-hidden="true" slot="start">
+        <img
+          alt=""
+          [src]="pokemon.image"
+        />
+      </ion-avatar>
+      <ion-label
+        >{{ stringUtils.primeiraLetraMaiuscula(pokemon.name) }}</ion-label
+      >
     </ion-item>
   </ion-list>
   <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
